@@ -1,0 +1,3 @@
+*.exe
+bin
+1.MessageBox/bin/*.exe
