@@ -8,7 +8,7 @@ API ini ditulis dalam bahasa C, namun dapat digunakan dalam C++. Win32 API memun
 
 > **Catatan:** Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
 
-## 🕰️Sejarah Singkat Win32 API🕰️
+## Sejarah Singkat Win32 API
 
 Win32 API dikembangkan oleh Microsoft sebagai bagian dari keluarga Windows API (WinAPI), yang dimulai sejak era **Windows 1.0** pada tahun 1985. Seiring perkembangan Windows, API ini terus disempurnakan dan menjadi tulang punggung pengembangan aplikasi desktop di sistem operasi Windows.
 
