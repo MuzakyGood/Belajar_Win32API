@@ -61,7 +61,20 @@ Fungsi `MessageBoxA()` memiliki 4 parameter:
 
 ---
 
-## C. Hasil
+## C. Kode lengkapnya
+
+```cpp
+#include <windows.h>
+
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow) {
+    MessageBoxA(NULL, "Hello, World!", "First GUI", MB_OK);
+    return 0;
+}
+```
+
+---
+
+## D. Hasil
 
 Berikut adalah hasil tampilan message box saat program dijalankan:
 

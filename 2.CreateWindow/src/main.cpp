@@ -19,15 +19,14 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
     MSG msg = {0};
 
-    while (GetMessageW(&msg, NULL, 0, 0)) {
+    while (GetMessageW(&msg, NULL, static_cast<UINT>(NULL), static_cast<UINT>(NULL))) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
-
     return 0;
 }
 
-LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM lp, LPARAM wp) {
+LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     switch (msg) {
 
@@ -37,7 +36,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM lp, LPARAM wp) {
         break;
 
         default:
-            return DefWindowProcW(hWnd, msg, lp, wp);
+            return DefWindowProcW(hWnd, msg, wp, lp);
     }
-
+    return DefWindowProcW(hWnd, msg, wp, lp);
 }
