@@ -57,7 +57,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 break;
 
                 case HELP_MENU:
-                    MessageBoxA(NULL, "No help or Tutorial, Just Empty Window with Menus.", "Help", MB_HELP);
+                    MessageBoxA(NULL, "Notes: No help or Tutorial.\nJust Empty Window with Menus.", "Help", MB_HELP);
                 break;
 
             }
