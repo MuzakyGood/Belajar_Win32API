@@ -83,16 +83,16 @@ void addMenus(HWND hWnd) {
     HMENU hFileMenu = CreateMenu();
     HMENU hSubFileMenu = CreateMenu();
 
-    AppendMenuW(hSubFileMenu, MF_STRING, FILE_OPEN_SUBMENU_ITEM, L"Item");
+    AppendMenuW(hMenu, MF_POPUP, reinterpret_cast<UINT_PTR>(hFileMenu), L"File");
 
     AppendMenuW(hFileMenu, MF_STRING, FILE_MENU_NEW, L"New");
+    
     AppendMenuW(hFileMenu, MF_POPUP, reinterpret_cast<UINT_PTR>(hSubFileMenu), L"Open");
+    AppendMenuW(hSubFileMenu, MF_STRING, FILE_OPEN_SUBMENU_ITEM, L"Item");
     
     AppendMenuW(hFileMenu, MF_SEPARATOR, static_cast<UINT_PTR>(NULL), NULL);
-
     AppendMenuW(hFileMenu, MF_STRING, FILE_MENU_EXIT, L"Exit");
 
-    AppendMenuW(hMenu, MF_POPUP, reinterpret_cast<UINT_PTR>(hFileMenu), L"File");
     AppendMenuW(hMenu, MF_STRING, ABOUT_MENU, L"About");
     AppendMenuW(hMenu, MF_STRING, HELP_MENU, L"Help");
 
