@@ -92,10 +92,12 @@ Fungsi ini menjadikan input pengguna sebagai judul dari aplikasi, menciptakan in
 
 Saat dijalankan, aplikasi akan menampilkan:
 
+![Text Output and Input](../image/TextInputTitle.png)
+
 * Dua label `STATIC`.
 * Satu kotak input `EDIT`.
 * Menu bar dengan opsi "feature" (berisi "Change Text" dan "Exit") serta "About".
 
-Jika user mengetikkan teks dan memilih "Change Text", maka judul Window akan berubah menjadi teks tersebut.
+Jika user mengetikkan teks dan memilih "Change Text", maka title Window akan berubah menjadi teks tersebut.
 
 # 😉 Terima Kasih 😉

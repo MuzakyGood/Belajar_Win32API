@@ -1,8 +1,8 @@
 #include <windows.h>
 
-#define CHANGE_TEXT_FEATURE_MENU 1
-#define EXIT_FEATURE_MENU 2
-#define ABOUT_MENU 3
+#define ABOUT_MENU 1
+#define EXIT_MENU 2
+#define CHANGE_TEXT_BTN 3
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
@@ -10,6 +10,7 @@ HMENU hMenu;
 HWND hEditOutput;
 
 void addMenus(HWND);
+
 void addControls(HWND);
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow) {
@@ -43,19 +44,19 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
         case WM_COMMAND:
             switch (wp) {
 
-                case CHANGE_TEXT_FEATURE_MENU:
-                    wchar_t text[100];
+                case CHANGE_TEXT_BTN:
+                    wchar_t Text[100];
 
-                    GetWindowTextW(hEditOutput, text, 100);
-                    SetWindowTextW(hWnd, text);
-                break;
-
-                case EXIT_FEATURE_MENU:
-                    DestroyWindow(hWnd);
+                    GetWindowTextW(hEditOutput, Text, 100);
+                    SetWindowTextW(hWnd, Text);
                 break;
 
                 case ABOUT_MENU:
                     MessageBoxA(NULL, "This app draw text and input text GUI Win32 API.\nWrite in C++23.\nCreated by Zach Noland in 2025.", "About Tutorial", MB_ICONINFORMATION);
+                break;
+
+                case EXIT_MENU:
+                    DestroyWindow(hWnd);
                 break;
 
             }
@@ -78,18 +79,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 }
 
 void addMenus(HWND hWnd) {
-    HMENU hFile;
-
     hMenu = CreateMenu();
-    hFile = CreateMenu();
-
-    AppendMenuW(hMenu, MF_POPUP, reinterpret_cast<UINT_PTR>(hFile), L"Feature");
-    AppendMenuW(hFile, MF_STRING, CHANGE_TEXT_FEATURE_MENU, L"Change Text");
-
-    AppendMenuW(hFile, MF_SEPARATOR, static_cast<UINT_PTR>(NULL), NULL);
-    AppendMenuW(hFile, MF_STRING, EXIT_FEATURE_MENU, L"Exit");
 
     AppendMenuW(hMenu, MF_STRING, ABOUT_MENU, L"About");
+    AppendMenuW(hMenu, MF_STRING, EXIT_MENU, L"Exit");
 
     SetMenu(hWnd, hMenu);
 }
@@ -97,6 +90,8 @@ void addMenus(HWND hWnd) {
 void addControls(HWND hWnd) {
     CreateWindowW(L"STATIC", L"Renamed Name APP", WS_VISIBLE | WS_CHILD | SS_CENTER, 200, 5, 100, 50, hWnd, NULL, NULL, NULL);
 
-    CreateWindowW(L"STATIC", L"Enter Text :", WS_VISIBLE | WS_CHILD | SS_LEFT, 25, 65, 100, 50, hWnd, NULL, NULL, NULL);
+    CreateWindowW(L"STATIC", L"Text Title :", WS_VISIBLE | WS_CHILD | SS_LEFT, 25, 65, 100, 50, hWnd, NULL, NULL, NULL);
     hEditOutput = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL, 108, 65, 200, 50, hWnd, NULL, NULL, NULL);
+
+    CreateWindowW(L"BUTTON", L"Generate", WS_VISIBLE | WS_CHILD | WS_BORDER, 25, 125, 68, 30, hWnd, reinterpret_cast<HMENU>(CHANGE_TEXT_BTN), NULL, NULL);
 }
