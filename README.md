@@ -6,8 +6,6 @@
 
 API ini ditulis dalam bahasa C, namun dapat digunakan dalam C++. Win32 API memungkinkan pengembang membuat aplikasi native Windows tanpa menggunakan framework tambahan.
 
-> **Catatan:** Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
-
 ## Sejarah Singkat Win32 API
 
 Win32 API dikembangkan oleh Microsoft sebagai bagian dari keluarga Windows API (WinAPI), yang dimulai sejak era **Windows 1.0** pada tahun 1985. Seiring perkembangan Windows, API ini terus disempurnakan dan menjadi tulang punggung pengembangan aplikasi desktop di sistem operasi Windows.
@@ -26,11 +24,11 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 
 ---
 
-## 🧠Kenapa Menggunakan Win32 API?🧠
+## Alasan menggunakan Win32 API?
 
 - Ringan dan cepat.
 - Akses langsung ke fitur-fitur Windows tanpa layer tambahan.
-- Cocok untuk aplikasi sistem dan utilitas tingkat rendah.
+- Cocok untuk aplikasi sistem dan utilitas low level programming.
 
 ---
 
@@ -41,6 +39,15 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 - SDK Windows (biasanya sudah termasuk di Visual Studio).
 
 > **Catatan:** Untuk compile Win32 API tidak memerlukan flag khusus, hanya command biasa. Contoh: ``g++ main.cpp -o main``.
+
+---
+
+## Perlu diperhatikan
+
+- Win32 API hanya bekerja pada OS Windows.
+- Win32 API harus di install terlabih dahulu jika belum tersedia.
+- Jika Window tidak muncul, kemunginan ada kode yang salah.
+- Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
 
 ---
 
