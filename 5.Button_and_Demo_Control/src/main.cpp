@@ -1,13 +1,15 @@
+#include <iostream>
+#include <vector>
 #include <windows.h>
 
 #define ABOUT_MENU 1
 #define EXIT_MENU 2
-#define CHANGE_TEXT_BTN 3
+#define GENERATE_BUTTON 3
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
+HWND hName, hAge, hOutput;
 HMENU hMenu;
-HWND hEditOutput;
 
 void addMenus(HWND);
 
@@ -44,19 +46,26 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
         case WM_COMMAND:
             switch (wp) {
 
-                case CHANGE_TEXT_BTN:
-                    wchar_t Text[100];
-
-                    GetWindowTextW(hEditOutput, Text, 100);
-                    SetWindowTextW(hWnd, Text);
-                break;
-
                 case ABOUT_MENU:
-                    MessageBoxA(NULL, "This app draw text and input text GUI Win32 API.\nWrite in C++23.\nCreated by Zach Noland in 2025.", "About Tutorial", MB_ICONINFORMATION);
+                    MessageBoxA(NULL, "This Demo Aplication GUI Win32 API.\nWrite in C++23.\nCreated by Zach Noland in 2025.", "About Tutorial", MB_ICONINFORMATION);
                 break;
 
                 case EXIT_MENU:
                     DestroyWindow(hWnd);
+                break;
+
+                case GENERATE_BUTTON:
+                    std::vector<char> NameBuffer(30), AgeBuffer(10);
+
+                    GetWindowTextA(hName, NameBuffer.data(), NameBuffer.size());
+                    GetWindowTextA(hAge, AgeBuffer.data(), AgeBuffer.size());
+
+                    std::string Name(NameBuffer.data());
+                    std::string Age(AgeBuffer.data());
+                    std::string Output = Name + " is " + Age + " years old.";
+
+                    SetWindowTextA(hOutput, Output.c_str());
+
                 break;
 
             }
@@ -88,10 +97,15 @@ void addMenus(HWND hWnd) {
 }
 
 void addControls(HWND hWnd) {
-    CreateWindowW(L"STATIC", L"Renamed Name APP", WS_VISIBLE | WS_CHILD | SS_CENTER, 200, 5, 100, 50, hWnd, NULL, NULL, NULL);
+    CreateWindowW(L"STATIC", L"Text Generator", WS_VISIBLE | WS_CHILD, 200, 25, 100, 50, hWnd, NULL, NULL, NULL);
 
-    CreateWindowW(L"STATIC", L"Text Title :", WS_VISIBLE | WS_CHILD | SS_LEFT, 25, 65, 100, 50, hWnd, NULL, NULL, NULL);
-    hEditOutput = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL, 108, 65, 200, 50, hWnd, NULL, NULL, NULL);
+    CreateWindowW(L"STATIC", L"Name :", WS_VISIBLE | WS_CHILD, 100, 50, 98, 38, hWnd, NULL, NULL, NULL);
+    hName = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 50, 98, 20, hWnd, NULL, NULL, NULL);
 
-    CreateWindowW(L"BUTTON", L"Generate", WS_VISIBLE | WS_CHILD | WS_BORDER, 25, 125, 68, 30, hWnd, reinterpret_cast<HMENU>(CHANGE_TEXT_BTN), NULL, NULL);
+    CreateWindowW(L"STATIC", L"Age :", WS_VISIBLE | WS_CHILD, 100, 80, 98, 38, hWnd, NULL, NULL, NULL);
+    hAge = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 80, 98, 20, hWnd, NULL, NULL, NULL);
+
+    CreateWindowW(L"BUTTON", L"Generate", WS_VISIBLE | WS_CHILD | WS_BORDER, 100, 130, 100, 25, hWnd, reinterpret_cast<HMENU>(GENERATE_BUTTON), NULL, NULL);
+
+    hOutput = CreateWindowW(L"EDIT", L"No Output", WS_VISIBLE | WS_CHILD | WS_BORDER, 100, 180, 300, 200, hWnd, NULL, NULL, NULL);
 }
