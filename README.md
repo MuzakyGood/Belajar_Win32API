@@ -21,6 +21,7 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 1. [Membuat Message Box Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/1.MessageBox)
 2. [Membuat Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/2.CreateWindow)
 3. [Membuat Menu Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/3.CreateMenu)
+4. [Membuat Text Input dan Output di Window](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/4.Static_Edit_Control)
 > Next Coming Soon
 
 ---

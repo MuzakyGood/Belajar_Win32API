@@ -18,5 +18,8 @@ debug:
 	$(MAKEDIR) $(PATH_EXE)
 	$(G++) $(SRC) $(FLAG) $(PATH_EXE)$(NAME_APP)
 
+run:
+	@$(PATH_EXE)$(NAME_APP)
+
 clean:
 	@$(REMOVE) $(PATH_EXE)
