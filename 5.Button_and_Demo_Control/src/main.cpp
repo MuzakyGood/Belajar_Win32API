@@ -65,7 +65,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     std::string Output = Name + " is " + Age + " years old.";
 
                     SetWindowTextA(hOutput, Output.c_str());
-
+                    MessageBeep(MB_OK);
                 break;
 
             }
@@ -97,7 +97,7 @@ void addMenus(HWND hWnd) {
 }
 
 void addControls(HWND hWnd) {
-    CreateWindowW(L"STATIC", L"Text Generator", WS_VISIBLE | WS_CHILD, 200, 25, 100, 50, hWnd, NULL, NULL, NULL);
+    CreateWindowW(L"STATIC", L"Text Generator", WS_VISIBLE | WS_CHILD, 200, 15, 100, 50, hWnd, NULL, NULL, NULL);
 
     CreateWindowW(L"STATIC", L"Name :", WS_VISIBLE | WS_CHILD, 100, 50, 98, 38, hWnd, NULL, NULL, NULL);
     hName = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 50, 98, 20, hWnd, NULL, NULL, NULL);
