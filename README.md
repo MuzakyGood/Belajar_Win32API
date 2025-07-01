@@ -46,7 +46,7 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 
 - Win32 API hanya bekerja pada OS Windows.
 - Win32 API harus di install terlabih dahulu jika belum tersedia.
-- Jika Window tidak muncul, kemunginan ada kode yang salah.
+- Jika Window tidak muncul, kemungkinan ada kode yang salah.
 - Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
 
 ---
