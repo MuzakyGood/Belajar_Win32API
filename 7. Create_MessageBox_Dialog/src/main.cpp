@@ -46,14 +46,22 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
             switch (wp) {
 
                 case ABOUT_MENU:
-                    MessageBoxA(NULL, "This Demo Aplication GUI Win32 API.\nWrite in C++23.\nCreated by Zach Noland in 2025.", "About Tutorial", MB_ICONINFORMATION);
+                    MessageBoxA(NULL, "This aplication for Tutorial Message Box", "About", MB_ICONINFORMATION);
                 break;
 
                 case EXIT_MENU:
-                    DestroyWindow(hWnd);
+                    int idExitMenu;
+
+                    idExitMenu = MessageBoxW(hWnd, L"Are you sure want exit?", L"Exit", MB_OKCANCEL | MB_ICONWARNING);
+
+                    if (idExitMenu == IDOK) {
+                        DestroyWindow(hWnd);
+                    }
+                    
                 break;
 
                 case GENERATE_BUTTON:
+                    int idCheckBtn;
                     std::vector<char> NameBuffer(30), AgeBuffer(10);
 
                     GetWindowTextA(hName, NameBuffer.data(), NameBuffer.size());
@@ -61,7 +69,36 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
                     std::string Name(NameBuffer.data());
                     std::string Age(AgeBuffer.data());
-                    std::string Output = Name + " is " + Age + " years old.";
+                    std::string Output;
+
+                    if ((Name == "") || (Age == "")) {
+                        idCheckBtn = MessageBoxW(hWnd, L"You did not enter enything!", L"Error", MB_ABORTRETRYIGNORE | MB_ICONERROR);
+
+                        switch (idCheckBtn) {
+
+                            case IDABORT:
+                                DestroyWindow(hWnd);
+                            break;
+
+                            case IDRETRY:
+                                Output = "No Output";
+
+                                SetWindowTextA(hName, "");
+                                SetWindowTextA(hAge, "");
+                                SetWindowTextA(hOutput, Output.c_str());
+                                return 0;
+                            break;
+
+                            case IDIGNORE:
+                                Output = "Error: Name or Age its Empty!";
+
+                                SetWindowTextA(hOutput, Output.c_str());
+                                return 0;
+                            break;
+                        }
+                    }
+
+                    Output = Name + " is " + Age + " years old.";
 
                     SetWindowTextA(hOutput, Output.c_str());
                     MessageBeep(MB_OK);
@@ -99,10 +136,10 @@ void addControls(HWND hWnd) {
     CreateWindowW(L"STATIC", L"Text Generator", WS_VISIBLE | WS_CHILD, 200, 15, 100, 50, hWnd, NULL, NULL, NULL);
 
     CreateWindowW(L"STATIC", L"Name :", WS_VISIBLE | WS_CHILD, 100, 50, 98, 38, hWnd, NULL, NULL, NULL);
-    hName = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 50, 98, 20, hWnd, NULL, NULL, NULL);
+    hName = CreateWindowW(L"EDIT", L"", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 50, 98, 20, hWnd, NULL, NULL, NULL);
 
     CreateWindowW(L"STATIC", L"Age :", WS_VISIBLE | WS_CHILD, 100, 80, 98, 38, hWnd, NULL, NULL, NULL);
-    hAge = CreateWindowW(L"EDIT", L".....", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 80, 98, 20, hWnd, NULL, NULL, NULL);
+    hAge = CreateWindowW(L"EDIT", L"", WS_VISIBLE | WS_CHILD | WS_BORDER, 158, 80, 98, 20, hWnd, NULL, NULL, NULL);
 
     CreateWindowW(L"BUTTON", L"Generate", WS_VISIBLE | WS_CHILD | WS_BORDER, 100, 130, 100, 25, hWnd, reinterpret_cast<HMENU>(GENERATE_BUTTON), NULL, NULL);
 
