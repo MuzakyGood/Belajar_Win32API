@@ -22,7 +22,7 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 4. [Membuat Text Input dan Output di Window](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/4.Static_Edit_Control)
 5. [Membuat Button dan Demo App](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/5.Button_and_Demo_Control)
 6. [Memuat gambar BMP sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/6.CreateBmpImage)
-7. [Membuat dialog di Message Box](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/7. CreateMessageBox_Dialog)
+7. [Membuat dialog di Message Box](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/7.CreateMessageBox_Dialog)
 > Next Coming Soon
 
 ---
