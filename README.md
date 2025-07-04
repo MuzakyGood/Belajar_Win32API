@@ -2,7 +2,7 @@
 
 ## 📌Deskripsi📌
 
-**Win32 API** adalah antarmuka pemrograman aplikasi (API) utama yang disediakan oleh Microsoft Windows untuk mengakses fitur-fitur sistem operasi, seperti pembuatan jendela (window), pengolahan pesan (message handling), pengelolaan file, input perangkat keras, dan banyak lagi.
+**Win32 API** adalah pemrograman UI(user interface) aplikasi (API) utama yang disediakan oleh Microsoft Windows untuk mengakses fitur-fitur sistem operasi, seperti pembuatan jendela (window), pengolahan pesan (message handling), pengelolaan file, input perangkat keras, dan banyak lagi.
 
 API ini ditulis dalam bahasa C, namun dapat digunakan dalam C++. Win32 API memungkinkan pengembang membuat aplikasi native Windows tanpa menggunakan framework tambahan.
 
@@ -14,24 +14,48 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 
 ---
 
-## 💾Struktur Belajar💾
-
-1. [Membuat Message Box Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/1.MessageBox)
-2. [Membuat Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/2.CreateWindow)
-3. [Membuat Menu Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/3.CreateMenu)
-4. [Membuat Text Input dan Output di Window](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/4.Static_Edit_Control)
-5. [Membuat Button dan Demo App](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/5.Button_and_Demo_Control)
-6. [Memuat gambar BMP sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/6.CreateBmpImage)
-7. [Membuat dialog di Message Box](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/7.CreateMessageBox_Dialog)
-> Next Coming Soon
-
----
-
 ## Alasan menggunakan Win32 API?
 
 - Ringan dan cepat.
 - Akses langsung ke fitur-fitur Windows tanpa layer tambahan.
 - Cocok untuk aplikasi sistem dan utilitas low level programming.
+
+---
+
+## Perlu diperhatikan
+
+- Win32 API hanya bekerja pada OS Windows.
+- Win32 API harus di install terlabih dahulu jika belum tersedia.
+- Jika Window tidak muncul, kemungkinan ada kode yang salah.
+- Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
+
+---
+
+## 📜Syarat memahami Win32 API📜
+Di sini saya bagikan tips cepat paham jika tidak, bisa belajar fundamental lagi. Di Win32 API banyak menggunakan preprocessor seperti ``#define``, pointer, struct, procedure dan function, penggunaan variable pointer. Jadi sebelum mencoba atau memulai dengan Win32 API, Pembaca harus;
+
+Utama:
+- Expert di bahasa pemrograman **C**.
+- Memahami fundamental bahasa pemrograman **C++**.
+- Memahami struktur membuat aplikasi dari kode.
+
+<details>
+  <summary>Di jabarkan satu-persatu 🔽</summary>
+  <br>
+  <ul>
+    <li>Memahami mekanisme Preprocessor seperti <code>#define</code> di <b>C</b> atau <b>C++</b>.</li>
+    <li>Memahami call conversion pointer di <b>C</b>.</li>
+    <li>Memahami mekanisme <b>pointer</b>.</li>
+    <li>Memahami casting tipe data di <b>C</b> atau <b>C++</b>.</li>
+    <li>Memahami procedure atau function di <b>C</b> atau <b>C++</b>.</li>
+    <li>Memahami tipe data struct di <b>C</b> atau <b>C++</b>.</li>
+    <li>Memahami percabangan di <b>C</b> atau <b>C++</b>.</li>
+    <li>Memahami string di <b>C++</b>.</li>
+  </ul>
+</details>
+<br>
+
+> Catatan: Bagian **Utama** sudah mencakup semua, Bagian **Di jabarkan satu-persatu** jika mau tau lebih detail.
 
 ---
 
@@ -45,12 +69,16 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 
 ---
 
-## Perlu diperhatikan
+## 💾Struktur Belajar💾
 
-- Win32 API hanya bekerja pada OS Windows.
-- Win32 API harus di install terlabih dahulu jika belum tersedia.
-- Jika Window tidak muncul, kemungkinan ada kode yang salah.
-- Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
+1. [Membuat Message Box Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/1.MessageBox)
+2. [Membuat Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/2.CreateWindow)
+3. [Membuat Menu Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/3.CreateMenu)
+4. [Membuat Text Input dan Output di Window](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/4.Static_Edit_Control)
+5. [Membuat Button dan Demo App](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/5.Button_and_Demo_Control)
+6. [Memuat gambar BMP sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/6.CreateBmpImage)
+7. [Membuat dialog di Message Box](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/7.CreateMessageBox_Dialog)
+> Next Coming Soon. Selamat Belajar 😉
 
 ---
 
