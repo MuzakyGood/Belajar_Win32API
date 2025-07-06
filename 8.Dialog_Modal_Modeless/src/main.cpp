@@ -12,9 +12,11 @@ HWND hMainWindow, hModelessWindow, hDescOutput;
 
 void addControl(HWND);
 
+// Deklarasi procedure untuk membuat Window Message Box Modal
 void DialModalClass(HINSTANCE);
 void drawDialogModal(HWND);
 
+// Deklarasi procedure untuk membuat Window Message Box Modeless
 void DialModelessClass(HINSTANCE);
 void drawDialogModeless(HWND);
 
@@ -47,8 +49,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
-    std::string DescModal = "Modal message box adalah message box yang tidak mengizinkan interaksi dari Window Utama.";
-    std::string DescModeless = "Modeless message box adalah message box yang mengizinkan interaksi dari Window Utama.";
+    std::string DescModal = "Dialog Modal message box adalah Dialog yang tidak mengizinkan interaksi dari Window Utama.";
+    std::string DescModeless = "Dialog Modeless message box adalah Dialog yang mengizinkan interaksi dari Window Utama.";
 
     switch (msg) {
 
@@ -197,3 +199,4 @@ void drawDialogModeless(HWND hWnd) {
     CreateWindowW(L"STATIC", L"You can press input in Window", WS_VISIBLE | WS_CHILD | SS_CENTER, 50, 50, 100, 50, hModelessWindow, NULL, NULL, NULL);
     CreateWindowW(L"BUTTON", L"OK", WS_VISIBLE | WS_CHILD | WS_BORDER, 65, 115, 80, 28, hModelessWindow, reinterpret_cast<HMENU>(EXIT_MODELESS_DIALOG_BUTTON), NULL, NULL);
 }
+// ===========================================================
