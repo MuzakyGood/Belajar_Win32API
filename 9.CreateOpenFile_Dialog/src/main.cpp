@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cstring>
 #include <fstream>
 #include <vector>
+#include <iterator>
 #include <windows.h>
 
 #define OPEN_FILE_MENU 1
@@ -80,7 +80,6 @@ void fileOpenAndRead(HWND hWnd, std::string pathFile) {
     std::fstream userfile(pathFile, std::ios::in | std::ios::binary);
 
     if (userfile.is_open()) {
-       
         std::string Text((std::istreambuf_iterator<char>(userfile)), std::istreambuf_iterator<char>());
 
         SetWindowTextA(hInFile, Text.c_str());
@@ -88,7 +87,6 @@ void fileOpenAndRead(HWND hWnd, std::string pathFile) {
         userfile.close();
     } else {
         userfile.close();
-        MessageBoxW(hWnd, L"Failed open file", L"Error", MB_OK | MB_ICONERROR);
     }
 }
 
@@ -104,7 +102,7 @@ void openFileMenu(HWND hWnd) {
     openfn.lpstrFile = fileName.data();
     openfn.lpstrFile[0] = '\0';
     openfn.nMaxFile = fileName.size();
-    openfn.lpstrFilter = "Text file\0*.TXT\0C/C++ code file\0*.C;*.CPP\0";
+    openfn.lpstrFilter = "All file\0*.TXT;*.C;*.CPP\0Text file\0*.TXT\0C/C++ code file\0*.C;*.CPP\0";
     openfn.nFilterIndex = 1;
 
     GetOpenFileNameA(&openfn);

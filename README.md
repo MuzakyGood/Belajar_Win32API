@@ -8,7 +8,7 @@ API ini ditulis dalam bahasa C, namun dapat digunakan dalam C++. Win32 API memun
 
 ## Sejarah Singkat Win32 API
 
-Win32 API dikembangkan oleh Microsoft sebagai bagian dari keluarga Windows API (WinAPI), yang dimulai sejak era **Windows 1.0** pada tahun 1985. Seiring perkembangan Windows, API ini terus disempurnakan dan menjadi tulang punggung pengembangan aplikasi desktop di sistem operasi Windows.
+Win32 API dikembangkan oleh Microsoft sebagai bagian dari keluarga Windows API (WinAPI), yang dimulai sejak era **Windows 1.0** pada tahun 1985, Pertama di buat **Win16 API** untuk **Windows 3.1** ke bawah. Seiring perkembangan Windows, API ini terus disempurnakan dan menjadi tulang punggung pengembangan aplikasi desktop di sistem operasi Windows. 
 
 Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimulai sejak **Windows NT** dan **Windows 95**. Meskipun Windows modern kini sudah 64-bit, Win32 API tetap digunakan dan kompatibel, serta menjadi dasar dari banyak framework seperti **MFC**, **.NET**, dan **WinForms**.
 
@@ -24,7 +24,7 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 
 ## Perlu diperhatikan
 
-- Win32 API hanya bekerja pada OS Windows.
+- Win32 API hanya bekerja pada OS Windows, lebih tepatnya Windows 95 hingga ke atas.
 - Win32 API harus di install terlabih dahulu jika belum tersedia.
 - Jika Window tidak muncul, kemungkinan ada kode yang salah.
 - Di tutorial ini saya akan menggunakan C++ dan fitur bawaan-nya, Jadi pastikan run code ini di C++.
@@ -34,7 +34,7 @@ Nama "Win32" merujuk pada versi Windows yang mendukung arsitektur 32-bit, dimula
 ## 📜Syarat memahami Win32 API📜
 Di sini saya bagikan tips cepat paham jika tidak, bisa belajar fundamental lagi. Di Win32 API banyak menggunakan preprocessor seperti ``#define``, pointer, struct, procedure dan function, penggunaan variable pointer. Jadi sebelum mencoba atau memulai dengan Win32 API, Pembaca harus;
 
-Utama:
+Utama🆗:
 - Expert di bahasa pemrograman **C**.
 - Memahami fundamental bahasa pemrograman **C++**.
 - Memahami struktur membuat aplikasi dari kode.
@@ -45,6 +45,7 @@ Utama:
   <ul>
     <li>Memahami mekanisme Preprocessor seperti <code>#define</code> di <b>C</b> atau <b>C++</b>.</li>
     <li>Memahami call conversion pointer di <b>C</b>.</li>
+    <li>Memahami Handle file di <b>C/C++</b></li>
     <li>Memahami mekanisme <b>pointer</b>.</li>
     <li>Memahami casting tipe data di <b>C</b> atau <b>C++</b>.</li>
     <li>Memahami procedure atau function di <b>C</b> atau <b>C++</b>.</li>
