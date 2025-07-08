@@ -95,7 +95,7 @@ Artinya:
 
 ---
 
-### 2. Fungsi `fileOpenAndRead(HWND hWnd, std::string pathFile)`
+### 2. Fungsi `fileOpenAndRead(std::string pathFile)`
 
 Fungsi ini membuka file dalam mode binary (`std::ios::binary`) dan membaca seluruh isinya menggunakan `std::istreambuf_iterator`, kemudian menampilkan hasilnya pada `EDIT control`.
 
@@ -122,7 +122,7 @@ Menambahkan menu "Files" ke menu bar dan submenu "Open" serta "Exit" ke dalamnya
 ### 4. Area Tampilan File dan Path: `addControl(HWND hWnd)`
 
 ```cpp
-hInFile = CreateWindowW(L"EDIT", ..., ES_MULTILINE | ES_AUTOVSCROLL);
+hInFile = CreateWindowW(L"EDIT", ..., ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL);
 hPathFile = CreateWindowW(L"EDIT", ..., ES_AUTOHSCROLL);
 ```
 

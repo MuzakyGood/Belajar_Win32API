@@ -5,7 +5,8 @@
 #include <windows.h>
 
 #define OPEN_FILE_MENU 1
-#define EXIT_FILE_MENU 2
+#define SAVE_AS_FILE_MENU 2
+#define EXIT_FILE_MENU 3
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
@@ -15,8 +16,12 @@ HWND hInFile, hPathFile;
 void addMenus(HWND);
 
 void addControl(HWND);
+
 void openFileMenu(HWND);
-void fileOpenAndRead(std::string pathFile);
+void saveFile(HWND);
+
+void fileOpenAndRead(std::string);
+void fileOpenAndWrite(std::string);
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow) {
     
@@ -51,6 +56,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
                 case OPEN_FILE_MENU:
                     openFileMenu(hWnd);
+                break;
+
+                case SAVE_AS_FILE_MENU:
+                    saveFile(hWnd);
                 break;
 
                 case EXIT_FILE_MENU:
@@ -90,6 +99,24 @@ void fileOpenAndRead(std::string pathFile) {
     }
 }
 
+void fileOpenAndWrite(std::string pathFile) {
+    int sizeWindowText;
+    sizeWindowText = GetWindowTextLengthA(hInFile);
+    std::vector<char> TextBuffer(sizeWindowText + 1);
+    std::fstream userfile(pathFile, std::ios::out);
+
+    if (userfile.is_open()) {
+
+        GetWindowTextA(hInFile, TextBuffer.data(), sizeWindowText + 1);
+
+        userfile << TextBuffer.data();
+
+        userfile.close();
+    } else {
+        userfile.close();
+    }
+}
+
 void openFileMenu(HWND hWnd) {
     std::vector<char> fileName(100);
 
@@ -112,12 +139,33 @@ void openFileMenu(HWND hWnd) {
     SetWindowTextA(hPathFile, openfn.lpstrFile);
 }
 
+void saveFile(HWND hWnd) {
+    std::vector<char> fileName(100);
+
+    OPENFILENAMEA openfn;
+    
+    ZeroMemory(&openfn, sizeof(openfn));
+
+    openfn.lStructSize = sizeof(openfn);
+    openfn.hwndOwner = hWnd;
+    openfn.lpstrFile = fileName.data();
+    openfn.lpstrFile[0] = '\0';
+    openfn.nMaxFile = fileName.size();
+    openfn.lpstrFilter = "All file\0*.TXT;*.C;*.CPP\0Text file\0*.TXT\0C/C++ code file\0*.C;*.CPP\0";
+    openfn.nFilterIndex = 1;
+
+    GetSaveFileNameA(&openfn);
+
+    fileOpenAndWrite(openfn.lpstrFile);
+}
+
 void addMenus(HWND hWnd) {
     hMenu = CreateMenu();
     HMENU hOpenFiles = CreateMenu();
 
     AppendMenuW(hMenu, MF_POPUP, reinterpret_cast<UINT_PTR>(hOpenFiles), L"Files");
     AppendMenuW(hOpenFiles, MF_STRING, OPEN_FILE_MENU, L"Open");
+    AppendMenuW(hOpenFiles, MF_STRING, SAVE_AS_FILE_MENU, L"Save As...");
     AppendMenuW(hOpenFiles, MF_SEPARATOR, static_cast<UINT_PTR>(NULL), NULL);
     AppendMenuW(hOpenFiles, MF_STRING, EXIT_FILE_MENU, L"Exit");
 
