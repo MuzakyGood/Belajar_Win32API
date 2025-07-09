@@ -1,4 +1,4 @@
-# Membuat Menu Open File
+# Membuat Fitur Open File Menu
 
 ## A. Deskripsi
 
@@ -44,6 +44,8 @@ GetOpenFileNameA(&openfn);
 fileOpenAndRead(hWnd, openfn.lpstrFile);
 SetWindowTextA(hPathFile, openfn.lpstrFile);
 ```
+
+> Catatan: Pastikan untuk menyertakan flag `-lcomdlg32` ketika ingin compile kode main.cpp, karena agar compiler dapat menyertakan menyertakan library `comdlg32.lib` dan tersedia procedure `GetOpenFileName();`, `GetSaveFileName();`.
 
 #### Fungsi `ZeroMemory();`
 
@@ -138,6 +140,8 @@ hPathFile = CreateWindowW(L"EDIT", ..., ES_AUTOHSCROLL);
 ![Window File Viewer](../image/WindowFileViewer.png)
 
 * Ketika menekan menu `Files` terdapat 2 opsi `Open` dan `Exit`.
+* Menu `Files > Open` dapat digunakan untuk membuka file.
+* Menu `Files > Exit` dapat di gunakan untuk menutup aplikasi.
 
 ![Menu Files Viewer](../image/MenuFileViewer.png)
 

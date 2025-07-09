@@ -1,1 +1,2 @@
 Hello, World!
+Hari yang cerah untuk programming C++.
