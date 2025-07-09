@@ -4,10 +4,14 @@
 #include <iterator>
 #include <windows.h>
 
+// Preprocessor define
+
 #define OPEN_FILE_MENU 1
 #define SAVE_FILE_MENU 2
 #define SAVE_AS_FILE_MENU 3
 #define EXIT_FILE_MENU 4
+
+// Global Deklarasi
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
@@ -26,6 +30,9 @@ void saveAsFileMenu(HWND);
 void fileOpenAndRead(std::string);
 void fileOpenAndWrite(std::string);
 
+// =====Win32 API user interface=====
+
+// utama dari aplikasi menggunakan WinMain()
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow) {
     
     WNDCLASSW wc = {0};
@@ -50,6 +57,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
     return 0;
 }
 
+// Window Procedure
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     switch (msg) {
@@ -92,8 +100,9 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     return DefWindowProcW(hWnd, msg, wp, lp);
 }
 
-// Win32 API user interface.
+// Inisilisasi Procedure
 
+// Procedure membuat tampilan menu.
 void addMenus(HWND hWnd) {
     hMenu = CreateMenu();
     HMENU hOpenFiles = CreateMenu();
@@ -108,6 +117,7 @@ void addMenus(HWND hWnd) {
     SetMenu(hWnd, hMenu);
 }
 
+// Procedure membuat tampilan window.
 void addControl(HWND hWnd) {
     CreateWindowW(L"STATIC", L"Text Editor", WS_VISIBLE | WS_CHILD | SS_CENTER, 200, 20, 100, 50, hWnd, NULL, NULL, NULL);
 
@@ -117,8 +127,11 @@ void addControl(HWND hWnd) {
     hPathFile = CreateWindowW(L"EDIT", L"C:\\", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL, 50, 380, 380, 24, hWnd, NULL, NULL, NULL);
 }
 
-// Text Editor App code.
+// ==============================
 
+// =====Text Editor App code=====
+
+// Kode membaca file.
 void fileOpenAndRead(std::string pathFile) {
     std::fstream userfile(pathFile, std::ios::in | std::ios::binary);
 
@@ -133,6 +146,8 @@ void fileOpenAndRead(std::string pathFile) {
     }
 }
 
+
+// Kode menulis file.
 void fileOpenAndWrite(std::string pathFile) {
     int sizeWindowText;
     sizeWindowText = GetWindowTextLengthA(hInFile);
@@ -151,6 +166,7 @@ void fileOpenAndWrite(std::string pathFile) {
     }
 }
 
+// Menu membuka file.
 void openFileMenu(HWND hWnd) {
     std::vector<char> fileName(100);
 
@@ -175,6 +191,7 @@ void openFileMenu(HWND hWnd) {
     SetWindowTextA(hPathFile, openfn.lpstrFile);
 }
 
+// Menu menyimpan(save) file.
 void saveFileMenu(HWND hWnd) {
     if ((pathFileHandle == "")) {
         saveAsFileMenu(hWnd);
@@ -183,6 +200,7 @@ void saveFileMenu(HWND hWnd) {
     }
 }
 
+// Menu menyimpan file baru(save as).
 void saveAsFileMenu(HWND hWnd) {
     std::vector<char> fileName(100);
 
@@ -204,3 +222,4 @@ void saveAsFileMenu(HWND hWnd) {
 
     fileOpenAndWrite(pathFileHandle);
 }
+// ==============================
