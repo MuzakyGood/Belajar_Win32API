@@ -72,15 +72,15 @@ Utama🆗:
 
 ## 💾Struktur Belajar💾
 
-1. [Membuat Message Box Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/1.MessageBox)
-2. [Membuat Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/2.CreateWindow)
-3. [Membuat Menu Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/3.CreateMenu)
+1. [Membuat Message Box Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/01.MessageBox)
+2. [Membuat Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/02.CreateWindow)
+3. [Membuat Menu Window Sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/03.CreateMenu)
 4. [Membuat Text Input dan Output di Window](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/4.Static_Edit_Control)
-5. [Membuat Button dan Demo App](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/5.Button_and_Demo_Control)
-6. [Memuat gambar BMP sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/6.CreateBmpImage)
-7. [Membuat MessageBox Interaktif](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/7.CreateMessageBox_Dialog)
-8. [Membuat Modal dan Modeless Dialog](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/8.Dialog_Modal_Modeless)
-9. [Membuat Open File Menu (Read File)](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/9.CreateOpenFile_Dialog)
+5. [Membuat Button dan Demo App](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/05.Button_and_Demo_Control)
+6. [Memuat gambar BMP sederhana](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/06.CreateBmpImage)
+7. [Membuat MessageBox Interaktif](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/07.CreateMessageBox_Dialog)
+8. [Membuat Modal dan Modeless Dialog](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/08.Dialog_Modal_Modeless)
+9. [Membuat Open File Menu (Read File)](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/09.CreateOpenFile_Dialog)
 10. [Membuat Save File dan Scrollbar (Write File)](https://github.com/MuzakyGood/Belajar_Win32API/tree/main/10.CreateSaveFile_and_Scrollbar)
 > Next Coming Soon. Selamat Belajar 😉
 

@@ -16,7 +16,7 @@ void addMenus(HWND);
 
 void addControl(HWND);
 void openFileMenu(HWND);
-void fileOpenAndRead(std::string pathFile);
+void fileOpenAndRead(std::string);
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow) {
     
