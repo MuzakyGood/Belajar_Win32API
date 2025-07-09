@@ -10,6 +10,8 @@
 #define SAVE_FILE_MENU 2
 #define SAVE_AS_FILE_MENU 3
 #define EXIT_FILE_MENU 4
+#define FEATURE_MENU 5
+#define ABOUT_MENU 6
 
 // Global Deklarasi
 
@@ -81,6 +83,13 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     DestroyWindow(hWnd);
                 break;
 
+                case FEATURE_MENU:
+                    MessageBoxW(NULL, L"1.Add Input text feature.\n2.Save and Save as.\n3.Add scroll bar input text.", L"App Feature", MB_OK | MB_ICONINFORMATION);
+                break;
+
+                case ABOUT_MENU:
+                    MessageBoxW(NULL, L"Write in C++ with Win32 API.\nCreated by Zach Noland in 2025.", L"About App", MB_OK | MB_ICONQUESTION);
+                break;
             }
         break;
 
@@ -113,6 +122,9 @@ void addMenus(HWND hWnd) {
     AppendMenuW(hOpenFiles, MF_STRING, SAVE_AS_FILE_MENU, L"Save As...");
     AppendMenuW(hOpenFiles, MF_SEPARATOR, static_cast<UINT_PTR>(NULL), NULL);
     AppendMenuW(hOpenFiles, MF_STRING, EXIT_FILE_MENU, L"Exit");
+
+    AppendMenuW(hMenu, MF_STRING, FEATURE_MENU, L"Feature");
+    AppendMenuW(hMenu, MF_STRING, ABOUT_MENU, L"About");
 
     SetMenu(hWnd, hMenu);
 }
